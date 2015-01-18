@@ -36,7 +36,7 @@ class MeipinPipeline(object):
         for i in xrange(0, len(item['title'])):
             #print i 
             sql = "insert ignore into meipin(`title`,`pic`) values ('%s','%s')" %(item['title'][i],item['pic'][i])
-            print sql
+            #print sql
             db.execute(sql)
     def check_exist(self,db,item):
         db.execute("select `id` from meipin where `title` = '%s'" % item['title'])

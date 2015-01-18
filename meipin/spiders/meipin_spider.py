@@ -17,10 +17,11 @@ from scrapy.selector import HtmlXPathSelector
 class MeipinSpider(CrawlSpider):
     name = 'meipin'
     start_urls = [
-        "http://meipintu.com/",
+        "http://meipintu.com",
     ]
     rules = (
-        Rule(SgmlLinkExtractor(allow=(r'http://meipintu.com/index\?idx=\d+')), callback='parse_meipin',follow=True),
+        #Rule(SgmlLinkExtractor(allow=(r'http://meipintu.com/index\?idx=\d+')), callback='parse_meipin',follow=True),
+        Rule(SgmlLinkExtractor(allow=("/index\?idx=\d+")),callback='parse_meipin',follow = True),
         #Rule(SgmlLinkExtractor(allow=(r'http://meipintu.com/more\?t=\d+\.\d+')), callback='parse_meipin',follow=True),
     )
     """
